@@ -14,5 +14,6 @@ class ProfileAdmin(admin.ModelAdmin):
 class ExpenseAdmin(admin.ModelAdmin):
     list_display = [
         'title',
+        'pk',
         'price'
     ]

@@ -13,7 +13,7 @@
             {% for expense in expenses %}
             <!-- First Expense -->
             <li class="red"> - {{ expense.price|floatformat:2 }}$</li>
-  {% endfor %}
+            {% endfor %}
 
             <li class="green">= {{ leftovers|floatformat:2 }}$ left</li>
         </ul>
@@ -27,31 +27,34 @@
     <a class="button add" href="{% url 'create expense' %}">Add Expense</a>
 
     {% if ee %}
-    <div class="expenses-container">
 
+    <div class="expenses-container">
+{% for expense in expenses %}
         <!-- First Expense Container -->
         <div class="expense-container">
             <!-- Expense Title -->
-            <h2>Piano</h2>
+            <h2>{{ expense.title }}</h2>
             <!-- Expense Image -->
-            <img src="https://www.pngkit.com/png/full/307-3075914_free-piano-clipart-piano-png.png" alt="description">
+            <img src={{ expense.expense_image }} alt="no foto">
+            {% if expense.description %}
             <!-- Expense Description -->
-            <p>I bought myself a new piano to improve my skills</p>
+            <p>{{ expense.description}}</p>
+            {% endif %}
             <div class="expense-detail">
                 <div>
                     <!-- Expense Price -->
-                    <p>Price: 900.00$</p>
+                    <p>Price: {{ expense.price|floatformat:2 }}$</p>
                 </div>
                 <div class="right">
                     <!-- Edit Expense Button -->
-                    <a class="button edit" href="#">Edit</a>
+                    <a class="button edit" href="{% url 'edit expense' expense.pk %}">Edit</a>
                     <!-- Delete Expense Button -->
-                    <a class="button delete" href="#">Delete</a>
+                    <a class="button delete" href="{% url 'delete expense' expense.pk %}">Delete</a>
                 </div>
             </div>
         </div>
-        <!-- End First Expense Container -->
-        {% endif %}
+        {% endfor %}
+    {% endif %}
 {##}
 {#        <!-- Second Expense Container -->#}
 {#        <div class="expense-container">#}
