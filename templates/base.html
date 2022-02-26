@@ -16,10 +16,10 @@
 <nav>
     <ul>
         <li class="img"><img src="/static/images/dollar.png" alt="dollar"></li>
-        <li><a href="#">Expenses Tracker</a></li>
+        <li><a href="{% url 'index' %}">Expenses Tracker</a></li>
         {% profiles_exist as pe %}
         {% if pe %}
-            <li class="right"><a href="#">Profile</a></li>
+            <li class="right"><a href="{% url 'profile details' %}">Profile</a></li>
         {% endif %}
     </ul>
 </nav>
