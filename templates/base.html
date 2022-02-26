@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static './css/style.css' %}"/>
-
+{% load profiles %}
 
 <html lang="en">
 <head>
@@ -17,7 +17,10 @@
     <ul>
         <li class="img"><img src="/static/images/dollar.png" alt="dollar"></li>
         <li><a href="#">Expenses Tracker</a></li>
-        <li class="right"><a href="#">Profile</a></li>
+        {% profiles_exist as pe %}
+        {% if pe %}
+            <li class="right"><a href="#">Profile</a></li>
+        {% endif %}
     </ul>
 </nav>
 <!-- End Navigation Bar -->
