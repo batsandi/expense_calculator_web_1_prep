@@ -40,7 +40,7 @@ class Profile(models.Model):
         upload_to=IMAGE_UPLOAD_TO,
         null=True,
         blank=True,
-        # default=,
+        # default='staticfiles/images/user.png',
         validators=(
             MaxSizeValidator(MAX_PHOTO_SIZE),
         )

@@ -52,7 +52,7 @@ def show_home(request):
 
     else:
         if request.method == 'POST':
-            form = CreateProfileForm(request.POST)
+            form = CreateProfileForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
                 return redirect('index')
