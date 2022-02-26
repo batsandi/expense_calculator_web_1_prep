@@ -1,7 +1,7 @@
 from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 
-from web_1_prep.main.validators import validate_only_letters, validate_max_file_size
+from web_1_prep.main.validators import validate_only_letters, MaxSizeValidator
 
 
 class Profile(models.Model):
@@ -11,6 +11,7 @@ class Profile(models.Model):
     LAST_NAME_MIN_LENGTH = 2
     MAX_PHOTO_SIZE = 5
     MIN_BUDGET = 0.0
+    IMAGE_UPLOAD_TO = 'PROFILES/'
 
     first_name = models.CharField(
         max_length=FIRST_NAME_MAX_LENGTH,
@@ -36,11 +37,12 @@ class Profile(models.Model):
     )
 
     profile_image = models.ImageField(
+        upload_to=IMAGE_UPLOAD_TO,
         null=True,
         blank=True,
         # default=,
         validators=(
-            validate_max_file_size,
+            MaxSizeValidator(MAX_PHOTO_SIZE),
         )
     )
 
