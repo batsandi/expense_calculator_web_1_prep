@@ -1,0 +1,64 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.env
+*.venv
+Pipfile
+Pipfile.lock
+
+# Django-related
+*.log
+db.sqlite3
+db.sqlite3-journal
+/media/
+staticfiles/
+static/
+*.pot
+*.mo
+
+# Django secret key file (if stored separately)
+secret_key.txt
+
+# Local settings
+local_settings.py
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Tests and coverage
+htmlcov/
+.coverage
+*.cover
+*.py,cover
+.hypothesis/
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# MacOS files
+.DS_Store
+
+# Node.js files (if using frontend dependencies)
+node_modules/
+npm-debug.log
+yarn.lock
+
+# Migrations (optional if auto-generated)
+**/migrations/*.py
+!**/migrations/__init__.py
+
